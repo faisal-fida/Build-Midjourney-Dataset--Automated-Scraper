@@ -15,6 +15,7 @@ from config import (
     SAVE_INTERVAL,
     DATA_DIR,
     DATA_FILE,
+    CONFIG_FILE,
     MAX_RETRIES,
     RETRY_DELAY,
 )
@@ -74,6 +75,7 @@ def scraper() -> List[Dict[str, Any]]:
 
         if len(messages) % SAVE_INTERVAL == 0:
             save_messages(messages)
+            messages.clear()
             save_config(json_data)
             logging.info(f"Scraped {len(messages)} messages. Saved to {DATA_FILE}")
     return messages
@@ -83,8 +85,22 @@ def save_messages(messages: List[Dict[str, Any]]) -> None:
     if not os.path.exists(DATA_DIR):
         os.makedirs(DATA_DIR)
 
+    if not os.path.exists(CONFIG_FILE):
+        logging.error(
+            "Rename config.example.json to config.json and set the required values"
+        )
+        exit(1)
+
+    if os.path.exists(DATA_FILE):
+        with open(DATA_FILE, "r") as f:
+            existing_messages = json.load(f)
+    else:
+        existing_messages = []
+
+    existing_messages.extend(messages)
+
     with open(DATA_FILE, "w") as f:
-        f.write(json.dumps(messages))
+        f.write(json.dumps(existing_messages, indent=4))
 
 
 if __name__ == "__main__":

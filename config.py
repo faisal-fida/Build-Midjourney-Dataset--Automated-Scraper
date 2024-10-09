@@ -2,11 +2,12 @@ import os
 import json
 
 RETRY_AFTER_DEFAULT = 60
-SLEEP_MIN = 0.8
-SLEEP_MAX = 1.5
+SLEEP_MIN = 0.5
+SLEEP_MAX = 1
 SAVE_INTERVAL = 300 * 300
 DATA_DIR = "data"
 DATA_FILE = os.path.join(DATA_DIR, "messages.json")
+CONFIG_FILE = os.path.join(DATA_DIR, "config.json")
 MAX_RETRIES = 5
 RETRY_DELAY = 5
 
