@@ -1,0 +1,36 @@
+{
+  "url": "https://chat.stream-io-api.com/channels/jobs/sample-channel-id/query",
+  "json": {
+    "data": {},
+    "state": true,
+    "watch": true,
+    "messages": {
+      "limit": 300,
+      "id_lt": "sample-message-id"
+    }
+  },
+  "headers": {
+    "accept": "application/json, text/plain, */*",
+    "accept-language": "en-US,en;q=0.9",
+    "authorization": "sample-jwt-token",
+    "content-type": "application/json",
+    "origin": "https://www.example.com",
+    "priority": "u=1, i",
+    "referer": "https://www.example.com/",
+    "sec-ch-ua": "\"Google Chrome\";v=\"129\", \"Not=A?Brand\";v=\"8\", \"Chromium\";v=\"129\"",
+    "sec-ch-ua-mobile": "?0",
+    "sec-ch-ua-platform": "\"Windows\"",
+    "sec-fetch-dest": "empty",
+    "sec-fetch-mode": "cors",
+    "sec-fetch-site": "cross-site",
+    "stream-auth-type": "jwt",
+    "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36",
+    "x-client-request-id": "sample-client-request-id",
+    "x-stream-client": "stream-chat-javascript-client-browser-8.24.0"
+  },
+  "params": {
+    "user_id": "sample-user-id",
+    "connection_id": "sample-connection-id",
+    "api_key": "sample-api-key"
+  }
+}
