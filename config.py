@@ -4,7 +4,7 @@ import json
 RETRY_AFTER_DEFAULT = 60
 SLEEP_MIN = 0.5
 SLEEP_MAX = 1
-SAVE_INTERVAL = 300 * 300
+SAVE_INTERVAL = 150 * 150
 DATA_DIR = "data"
 DATA_FILE = os.path.join(DATA_DIR, "messages.json")
 CONFIG_FILE = os.path.join(DATA_DIR, "config.json")
@@ -18,8 +18,6 @@ def load_config():
         return config
 
 
-def save_config(params):
-    config = load_config()
-    config["params"] = params
+def save_config(data):
     with open("data/config.json", "w") as f:
-        json.dump(config, f)
+        json.dump(data, f)
